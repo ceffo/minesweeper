@@ -1,0 +1,104 @@
+﻿h1 {
+    font-size: 24;
+    font-family: Arial, Helvetica, sans-serif;
+    color: darkblue;
+    text-align: left;
+}
+
+h3 {
+    font-size: 14;
+    font-family: monospace;
+    color: darkorange;
+}
+
+h3.lost {
+    color: red;
+}
+
+h3.won {
+    color: green;
+}
+
+input {
+    font-family: monospace;
+    text-align: center;
+    vertical-align: center;
+    font-weight: normal;
+}
+
+td {
+    width: 20pt;
+    height: 20pt;
+    text-align: center;
+    vertical-align: central;
+    background-color: lightgray;
+    border: 2px outset;
+    font-weight: bold;
+    font-family: Courier New, Courier, monospace;
+}
+
+td.input {
+    background-color: transparent;
+    border: 0px;
+    font-weight: normal;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+td.discovered {
+    background-color: lightslategray;
+    border-style: inset;
+}
+
+td.error {
+    background-color: orange;
+}
+
+td.mark {
+    width: 20pt;
+    height: 20pt;
+    background: url('Mark.png') lightgray no-repeat center center;
+}
+
+td.bomb {
+    width: 20pt;
+    height: 20pt;
+    background: url('Bomb.png') gray no-repeat center center;
+}
+
+td.explodedbomb {
+    width: 20pt;
+    height: 20pt;
+    background: url('Bomb.png') red no-repeat center center;
+}
+
+td.l1 {
+    color: blue;
+}
+
+td.l2 {
+    color: green;
+}
+
+td.l3 {
+    color: red;
+}
+
+td.l4 {
+    color: darkblue;
+}
+
+td.l5 {
+    color: brown;
+}
+
+td.l6 {
+    color: teal;
+}
+
+td.l7 {
+    color: black;
+}
+
+td.l8 {
+    color: grey;
+}

@@ -1,0 +1,47 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <title>MineSweeper</title>
+    <link rel="stylesheet" type="text/css" href="Minesweeper.css" />
+
+    <script type="text/javascript" src="Minesweeper.js"></script>
+</head>
+
+<body>
+    <h1>minesweeper</h1>
+    <table>
+        <tr>
+            <td class="input">
+                <button id="restart">
+                    <img src="backup-restore.png"></img>
+                </button>
+            </td>
+            <td class="input">
+                <input id="height" type="number" min=0 max=50>height</input>
+            </td>
+            <td class="input">
+                <input id="width" type="number" min=0 max=50>width</input>
+            </td>
+            <td class="input">
+                <input id="bombCount" type="range" min=0></input>
+                <output id="bombOut" type="number"></output>
+            </td>
+        </tr>
+    </table>
+
+    <h3 id="result"></h3>
+    <table id="Board">
+        <script type="text/javascript">
+            "use strict";
+
+            var table = document.getElementById("Board");
+
+            new ceffo.minesweeper.TableBoard(table, 9, 15, 23);
+        </script>
+    </table>
+</body>
+
+</html>
