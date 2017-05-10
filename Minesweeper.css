@@ -22,8 +22,8 @@ h3.won {
 input {
     font-family: monospace;
     text-align: center;
-    vertical-align: center;
-    font-weight: normal;
+    padding: 4px;
+    border-width: 0;
 }
 
 td {

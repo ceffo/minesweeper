@@ -76,7 +76,6 @@ ceffo.minesweeper = ceffo.minesweeper || {};
                 default:
                     return undefined;
             }
-            console.log(`Board.mark changing ${row},${column} from ${this._states[index]} to ${newState}`);
             this._states[index] = newState;
             return newState === ns.CellState.MARKED;
         };
@@ -196,7 +195,6 @@ ceffo.minesweeper = ceffo.minesweeper || {};
             let index = this.getIndex(row, column);
             let c = this.cell(index);
             let s = this._states[index];
-            //console.log(`discover ${row},${column} idx:${index} c:${c} s:${s}`);
             if (s !== ns.CellState.UNKNOWN)
                 return [];
             if (c === this.BOMB) {
@@ -267,7 +265,6 @@ ceffo.minesweeper = ceffo.minesweeper || {};
             return function(evt) {
                 evt.preventDefault();
                 var res = _self._board.mark(row, column);
-                console.log(`marked ${row},${column}: ${res}`)
                 if (res === true)
                     td.className = "mark";
                 else if (res === false)
