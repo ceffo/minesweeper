@@ -1,7 +1,10 @@
 ﻿"use strict";
 
-//var Rx = require('rxjs/Rx');
-
+Number.prototype.pad = function (size) {
+    var s = String(this);
+    while (s.length < (size || 2)) { s = "0" + s; }
+    return s;
+}
 
 var ceffo = ceffo || {};
 ceffo.minesweeper = ceffo.minesweeper || {};
@@ -211,9 +214,9 @@ ceffo.minesweeper = ceffo.minesweeper || {};
 
         constructor(height, width, bombCount) {
             if (height === undefined || height <= 0)
-                throw "'height' must be a positive number";
+                throw "'height' must be strictly positive";
             if (width === undefined || width <= 0)
-                throw "'width' must be a positive number";
+                throw "'width' must be strictly positive";
             if (bombCount === undefined || bombCount < 0)
                 throw "'bombCount' must be a positive number";
 
@@ -222,12 +225,12 @@ ceffo.minesweeper = ceffo.minesweeper || {};
             this._width = width;
             this._height = height;
             this._bombCount = Math.min(bombCount, max);
-            this._cells = new Array(max);
-            this._states = new Array(this._cells.length);
+            this._cells = [];
+            this._states = [];
             this._cellsToDiscover = max;
 
             // Fill in the temporary array of cells
-            var array = new Array(max);
+            var array = [];
             for (var i = 0; i < max; ++i)
                 array[i] = i;
             // Switch random indexes
@@ -254,10 +257,9 @@ ceffo.minesweeper = ceffo.minesweeper || {};
         notify(text, className) {
             let target = document.getElementById("result");
             target.innerText = text;
+            target.className = "status"
             if (className !== undefined)
-                target.className = className;
-            else
-                target.className = '';
+                target.className += ' ' +  className;
         }
 
         printLeft() {
@@ -305,11 +307,19 @@ ceffo.minesweeper = ceffo.minesweeper || {};
 
                 _self.printLeft();
 
+                var finished = lost || _self._board.allCellsDiscovered;
+
                 if (lost) {
                     _self.notify("you lost!", "lost");
                 } else
                 if (_self._board.allCellsDiscovered) {
                     _self.notify("you won!", "won");
+                }
+
+                if (finished)
+                {
+                    // stop the clock
+                    clearInterval(_self._clockEngine);
                 }
 
             }
@@ -327,11 +337,18 @@ ceffo.minesweeper = ceffo.minesweeper || {};
             var _self = this;
 
             return function(ev) {
-                _self._bombCountInput.setAttribute("max", _self._height * _self._width);
-                document.getElementById("bombOut").value = _self._bombCountInput.value + " bombs";
                 _self._width = _self._widthInput.value;
                 _self._height = _self._heightInput.value;
+                var max = _self._height * _self._width;
+                if (_self._bombCountInput.value > max)
+                {
+                    _self._bombCountInput.value = max;
+                }
+                _self._bombCountInput.setAttribute("max", max);
+
+                document.getElementById("bombOut").value = _self._bombCountInput.value + " bombs";
                 _self._bombCount = _self._bombCountInput.value;
+
                 _self.reset();
             }
         }
@@ -364,7 +381,13 @@ ceffo.minesweeper = ceffo.minesweeper || {};
 
         }
 
+        printElapsedTime(seconds) {
+            var clock = document.getElementById("clock");
+            clock.innerText = seconds.pad(4);
+        }
+
         reset() {
+            var _self = this;
             this._board = new ns.Board(this._height, this._width, this._bombCount);
             // create new table body
             let tbody = document.createElement('tbody');
@@ -388,6 +411,15 @@ ceffo.minesweeper = ceffo.minesweeper || {};
             }
             this._tbody = tbody;
             this.printLeft();
+
+            this.printElapsedTime(0);
+            this._elapsedSeconds = 0;
+            var clock = document.getElementById("clock");
+            clearInterval(this._clockEngine);
+            this._clockEngine = setInterval(function(){
+                _self._elapsedSeconds++;
+                _self.printElapsedTime(_self._elapsedSeconds);
+            }, 1000);
         }
 
     };

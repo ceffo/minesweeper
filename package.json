@@ -4,9 +4,7 @@
   "description": "Learning Javascript with Minesweeper",
   "main": "Minesweeper.js",
   "dependencies": {
-    "rxjs": "^5.4.0"
   },
-  "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

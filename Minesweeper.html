@@ -5,6 +5,7 @@
 <head>
     <meta charset="utf-8" />
     <title>MineSweeper</title>
+    <link href='https://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="Minesweeper.css" />
 
     <script type="text/javascript" src="Minesweeper.js"></script>
@@ -29,10 +30,14 @@
                 <input id="bombCount" type="range" min=0></input>
                 <output id="bombOut" type="number"></output>
             </td>
+            <td class="clear">
+                <div class="clock"  id="clock" ></div>
+            </td>
         </tr>
     </table>
 
-    <h3 id="result"></h3>
+        <h3 class="status" id="result" ></h3>
+
     <table id="Board">
         <script type="text/javascript">
             "use strict";

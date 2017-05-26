@@ -5,18 +5,24 @@
     text-align: left;
 }
 
-h3 {
-    font-size: 14;
+h3.status {
     font-family: monospace;
     color: darkorange;
 }
 
-h3.lost {
+h3.status.lost {
     color: red;
 }
 
-h3.won {
+h3.status.won {
     color: green;
+}
+
+.clock{
+    font-size: 14;
+    font-weight: bold;
+    color: cyan;
+    font-family: 'Orbitron', monospace;
 }
 
 input {
@@ -27,78 +33,95 @@ input {
 }
 
 td {
-    width: 20pt;
-    height: 20pt;
+    width: 22pt;
+    height: 22pt;
     text-align: center;
     vertical-align: central;
     background-color: lightgray;
-    border: 2px outset;
+    border: 2px outset ;
     font-weight: bold;
     font-family: Courier New, Courier, monospace;
 }
 
+td.clear {
+    background-color: darkblue;  
+    border: 0px;
+    width: 45pt;
+    vertical-align: bottom;
+    padding-left: 7pt;
+    padding-right: 7pt;
+}
+
 td.input {
+    margin-right: 10px;
     background-color: transparent;
     border: 0px;
     font-weight: normal;
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: monospace, Courier New, Courier;
+    vertical-align: center;
+    padding-left: 7pt;
 }
 
 td.discovered {
-    background-color: lightslategray;
+    background-color: gray;
     border-style: inset;
 }
 
 td.error {
     background-color: orange;
+    border-style: inset;
 }
 
 td.mark {
-    width: 20pt;
-    height: 20pt;
     background: url('Mark.png') lightgray no-repeat center center;
 }
 
 td.bomb {
-    width: 20pt;
-    height: 20pt;
     background: url('Bomb.png') gray no-repeat center center;
+    border-style: inset;
 }
 
 td.explodedbomb {
-    width: 20pt;
-    height: 20pt;
     background: url('Bomb.png') red no-repeat center center;
+    border-style: inset;
 }
 
 td.l1 {
     color: blue;
+    border-style: inset;
 }
 
 td.l2 {
     color: green;
+    border-style: inset;
 }
 
 td.l3 {
     color: red;
+    border-style: inset;
 }
 
 td.l4 {
     color: darkblue;
+    border-style: inset;
 }
 
 td.l5 {
     color: brown;
+    border-style: inset;
 }
 
 td.l6 {
     color: teal;
+    border-style: inset;
 }
 
 td.l7 {
     color: black;
+    border-style: inset;
 }
 
 td.l8 {
-    color: grey;
+    color: darkgray;
+    border-style: inset;
 }
