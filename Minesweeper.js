@@ -1,5 +1,8 @@
 ﻿"use strict";
 
+//var Rx = require('rxjs/Rx');
+
+
 var ceffo = ceffo || {};
 ceffo.minesweeper = ceffo.minesweeper || {};
 
@@ -26,6 +29,7 @@ ceffo.minesweeper = ceffo.minesweeper || {};
     }
 
     ns.Board = class Board {
+
         get BOMB() {
             return "B";
         }
@@ -150,6 +154,7 @@ ceffo.minesweeper = ceffo.minesweeper || {};
             };
 
             recursiveDiscover(row, column);
+
             if (this.allCellsDiscovered) {
                 result = result.concat(this.discoverCells());
             }
@@ -251,12 +256,12 @@ ceffo.minesweeper = ceffo.minesweeper || {};
             target.innerText = text;
             if (className !== undefined)
                 target.className = className;
+            else
+                target.className = '';
         }
 
         printLeft() {
-            let par = document.getElementById("result");
-            par.innerText = this._board.leftToDiscover + " left to discover";
-            par.className = '';
+            this.notify(this._board.leftToDiscover + " left to discover");
         }
 
         mark(td, row, column) {

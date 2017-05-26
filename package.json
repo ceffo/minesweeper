@@ -1,0 +1,26 @@
+{
+  "name": "minesweeper",
+  "version": "0.2.0",
+  "description": "Learning Javascript with Minesweeper",
+  "main": "Minesweeper.js",
+  "dependencies": {
+    "rxjs": "^5.4.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ceffo/minesweeper.git"
+  },
+  "keywords": [
+    "minesweeper"
+  ],
+  "author": "ceffo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ceffo/minesweeper/issues"
+  },
+  "homepage": "https://github.com/ceffo/minesweeper#readme"
+}
